@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
  
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
- 
+  
+  
+
   @override
   State<ProfileScreen> createState() =>
       _ProfileScreenState();
@@ -14,6 +16,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String fullName = 'IvonnieValentA';
   String userName = 'ivonniee';
   int favoriteCandiCount = 0;
+
+  // TODO: 5. Implementasi fungsi signIn
+  void signIn() {
+    setState(() {
+      isSignedIn = !isSignedIn;
+    });
+  }
+ 
+// TODO: 6. Implementasi fungsi signOut
+  void signOut() {
+    setState(() {
+      isSignedIn = !isSignedIn;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,8 +127,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Divider(color: Colors.deepPurple,),
                 SizedBox(height: 16,),
                 isSignedIn
-                ? TextButton(onPressed: (){}, child: const Text('Signed Out'))
-                : TextButton(onPressed: (){}, child: const Text('Signed In'))
+                ? TextButton(onPressed: (){signOut();}, child: const Text('Signed Out'))
+                : TextButton(onPressed: (){signIn();}, child: const Text('Signed In'))
                 
                 // TODO 4 Profile Action
               ],
